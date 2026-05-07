@@ -26,7 +26,12 @@
                     
                     <div class="col-md-4">
                         <label class="form-label fw-bold text-muted ms-1 small text-uppercase tracking-wider" style="font-size: 0.75rem;">Category</label>
-                        <input type="text" name="category" class="form-control shadow-sm @error('category') is-invalid @enderror" value="{{ old('category') }}" required placeholder="e.g. Design">
+                        <select name="category" class="form-select shadow-sm @error('category') is-invalid @enderror" required>
+                            <option value="">Select category</option>
+                            <option value="Latest Jobs" {{ old('category') == 'Latest Jobs' ? 'selected' : '' }}>Latest Jobs</option>
+                            <option value="Admit Cards" {{ old('category') == 'Admit Cards' ? 'selected' : '' }}>Admit Cards</option>
+                            <option value="Results" {{ old('category') == 'Results' ? 'selected' : '' }}>Results</option>
+                        </select>
                         @error('category') <div class="invalid-feedback fw-medium ms-1 mt-1">{{ $message }}</div> @enderror
                     </div>
                 </div>

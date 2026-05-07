@@ -14,11 +14,12 @@
         Immerse yourself in a beautifully crafted reading experience. Discover the latest insights on design, engineering, and startups.
     </p>
     
-    <div class="glass-panel p-2 mx-auto shadow-sm" style="max-width: 700px; border-radius: 12px; margin-bottom: 30px;">
+    <div class="glass-panel p-2 mx-auto shadow-sm" style="max-width: 900px; border-radius: 12px; margin-bottom: 30px;">
         <div class="d-flex filter-bar align-items-center" style="gap:10px;">
             <div class="position-relative flex-grow-1" style="min-width: 160px;">
                 <i class="fa-solid fa-magnifying-glass position-absolute text-muted fs-6" style="left: 16px; top: 12px;"></i>
-                <input type="text" id="searchInput" class="form-control form-control-sm filter-control ps-5" placeholder="Search curated articles..." aria-label="Search">
+                <input type="text" id="searchInput" class="form-control form-control-sm filter-control ps-5" placeholder="Search curated articles..." aria-label="Search" autocomplete="off">
+                <div id="searchSuggestions" class="search-suggestions d-none" aria-hidden="true"></div>
             </div>
 
             <div style="min-width: 200px;">
@@ -36,6 +37,31 @@
 
             <div style="width:44px;">
                 <button id="clearDateBtn" type="button" class="btn btn-light filter-control border-0 d-flex align-items-center justify-content-center" title="Clear date"><i class="fa-solid fa-xmark text-muted"></i></button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="about-section container-fluid px-0 fade-in-up">
+    <div class="mx-auto" style="max-width: 1000px;">
+        <div class="text-center mb-3">
+            <h2 class="fw-bold text-heading">About BlogYaari</h2>
+            <p class="text-muted" style="max-width: 780px; margin: 0 auto;">Fast updates, verified information, and a mobile-first reading experience — curated for professionals and students alike.</p>
+        </div>
+        <div class="about-cards">
+            <div class="about-card">
+                <h4>Fast Updates</h4>
+                <p>Timely posts and curated job updates so you never miss an important announcement.</p>
+            </div>
+            <div class="about-card">
+                <h4>Verified Information</h4>
+                <p>We prioritize accurate sources and verification for official notices and results.</p>
+            </div>
+            <div class="about-card">
+                <h4>Mobile Friendly Experience</h4>
+                <p>Read comfortably on any device with a clean, readable layout optimized for mobile.</p>
             </div>
         </div>
     </div>
@@ -66,7 +92,7 @@
 </div>
 
 <!-- Refined Grid Space -->
-<div class="row g-4 mt-2" id="blogList">
+<div class="card-grid mt-2" id="blogList">
     <!-- AJAX Cards injected here -->
 </div>
 
@@ -118,31 +144,26 @@ $(document).ready(function() {
 
                 blogs.forEach(function(blog, index) {
                     let date = new Date(blog.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-                    // prefer image_url (full URL provided by model accessor), fall back to image or default
                     let imageUrl = (blog.image_url && blog.image_url.length) ? blog.image_url : 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-                    let contentSnippet = blog.content.length > 100 ? blog.content.substring(0, 100) + '...' : blog.content;
-                    let delay = index * 0.05;
-                    
+                    let contentSnippet = $('<div>').html(blog.content).text();
+                    if (contentSnippet.length > 140) contentSnippet = contentSnippet.substring(0, 140) + '...';
+                    let delay = index * 0.04;
+
                     let card = `
-                        <div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay: ${delay}s">
-                            <div class="card h-100 premium-card">
-                                <div class="position-relative overflow-hidden">
-                                    <img src="${imageUrl}" class="card-img-top w-100" alt="${blog.title}">
-                                    <span class="position-absolute top-0 end-0 m-3 badge-pastel shadow-sm">${blog.category}</span>
-                                </div>
-                                <div class="card-body d-flex flex-column" style="padding: 1.5rem !important;">
-                                    <h4 class="card-title fw-bold mb-3 text-heading" style="letter-spacing: -0.3px; line-height: 1.3;">${blog.title}</h4>
-                                    <p class="card-text text-muted flex-grow-1 fs-6" style="line-height: 1.6; font-size: 0.95rem;">${contentSnippet}</p>
-                                    
-                                    <div class="mt-4 d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: var(--border-dark) !important;">
-                                        <div class="text-muted" style="font-size: 0.85rem; font-weight: 500;">
-                                            <i class="fa-regular fa-clock me-1"></i> ${date}
-                                        </div>
-                                        <a href="/blog/${blog.id}" class="text-decoration-none fw-semibold px-3 py-1 rounded-pill" style="background: rgba(255,255,255,0.03); color: var(--text-main); transition: 0.2s; font-size: 0.85rem; border: 1px solid var(--border-dark);">Read</a>
-                                    </div>
-                                </div>
+                        <article class="premium-card fade-in-up" style="animation-delay: ${delay}s;">
+                            <div class="position-relative">
+                                <img src="${imageUrl}" class="card-img-top w-100" alt="${blog.title}">
+                                <span class="position-absolute top-0 end-0 m-3 badge-pastel shadow-sm">${blog.category}</span>
                             </div>
-                        </div>
+                            <div class="card-body">
+                                <h4 class="card-title">${blog.title}</h4>
+                                <p class="card-text">${contentSnippet}</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <div class="text-muted" style="font-size: 0.85rem; font-weight: 500;"><i class="fa-regular fa-clock me-1"></i> ${date}</div>
+                                <a href="/blog/${blog.id}" class="text-decoration-none fw-semibold px-3 py-1 rounded-pill" style="background: rgba(255,255,255,0.03); color: var(--text-main); transition: 0.2s; font-size: 0.85rem; border: 1px solid var(--border-dark);">Read</a>
+                            </div>
+                        </article>
                     `;
                     $('#blogList').append(card);
                 });
@@ -170,6 +191,33 @@ $(document).ready(function() {
             fetchBlogs(currentPage);
         }, 400);
     });
+
+    // Live search suggestions (small result set)
+    let suggestionTimer;
+    $('#searchInput').on('input', function(e){
+        clearTimeout(suggestionTimer);
+        const q = $(this).val().trim();
+        const box = $('#searchSuggestions');
+        if (!q) { box.addClass('d-none'); return; }
+        suggestionTimer = setTimeout(function(){
+            $.ajax({ url: '/filter', type: 'GET', data: { search: q, page: 1, per_page: 5 }, success: function(res){
+                const items = res.data.data || [];
+                if (!items.length) { box.addClass('d-none'); return; }
+                box.empty();
+                items.forEach(function(b){
+                    const el = $('<div>').addClass('item d-flex');
+                    const inner = `<div style="flex:1"><div class=\"title\">${b.title}</div><div class=\"meta\">${b.category} · ${new Date(b.created_at).toLocaleDateString()}</div></div>`;
+                    el.html(inner);
+                    el.on('click', function(){ window.location = '/blog/' + b.id; });
+                    box.append(el);
+                });
+                box.removeClass('d-none');
+            } });
+        }, 250);
+    });
+
+    // Hide suggestions when clicking outside
+    $(document).on('click', function(e){ if (!$(e.target).closest('#searchSuggestions, #searchInput').length) { $('#searchSuggestions').addClass('d-none'); } });
 
     $('#categoryFilter').on('change', function() {
         currentPage = 1;

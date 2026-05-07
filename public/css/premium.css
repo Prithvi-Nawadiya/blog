@@ -86,6 +86,55 @@ h1, h2, h3, h4, h5, h6, .text-white {
     filter: brightness(0.9);
 }
 
+/* Ensure card content never collapses and cards are equal-height */
+.premium-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1.25rem !important;
+    flex: 1 1 auto;
+}
+.premium-card .card-footer {
+    padding: 0.8rem 1.25rem !important;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    background: transparent;
+}
+.card-title { color: var(--text-heading); margin-bottom: 0.25rem; }
+.card-text { color: var(--text-muted); }
+
+/* Fix blank/white collapse issue by forcing the image container to not overlap */
+.premium-card .position-relative { flex: 0 0 auto; }
+
+/* Equal height grid cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+
+/* Search suggestions dropdown */
+.search-suggestions {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(24,24,28,0.98), rgba(16,16,20,0.98));
+    border: 1px solid var(--border-dark);
+    border-radius: 10px;
+    max-height: 280px;
+    overflow: auto;
+    z-index: 50;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    padding: 6px;
+}
+.search-suggestions .item { padding: 10px 12px; border-radius: 8px; display: flex; gap: 12px; align-items: center; cursor: pointer; transition: background 0.15s ease; }
+.search-suggestions .item:hover { background: rgba(255,255,255,0.02); }
+.search-suggestions .item .meta { color: var(--text-muted); font-size: 0.85rem; }
+.search-suggestions .item .title { color: var(--text-heading); font-weight: 600; }
+
+/* About section */
+.about-section { padding: 48px 0 36px; }
+.about-cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 18px; }
+.about-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border-dark); padding: 18px; border-radius: 12px; text-align: left; }
+.about-card h4 { margin-bottom: 8px; color: var(--text-heading); }
+.about-card p { color: var(--text-muted); margin: 0; }
+
 .premium-card:hover .card-img-top {
     transform: scale(1.03);
     filter: brightness(1);
@@ -215,6 +264,7 @@ h1, h2, h3, h4, h5, h6, .text-white {
     font-weight: 700;
     line-height: 1.1;
     background: linear-gradient(180deg, var(--text-heading) 0%, var(--text-muted) 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
