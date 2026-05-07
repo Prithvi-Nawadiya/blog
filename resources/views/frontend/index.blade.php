@@ -188,18 +188,18 @@ $(document).ready(function() {
                     let delay = index * 0.04;
 
                     let card = `
-                        <article class="premium-card fade-in-up" style="animation-delay: ${delay}s;">
-                            <div class="position-relative">
-                                <img src="${imageUrl}" class="card-img-top w-100" alt="${blog.title}">
-                                <span class="position-absolute top-0 end-0 m-3 badge-pastel shadow-sm">${blog.category}</span>
+                        <article class="premium-card horizontal-card fade-in-up" style="animation-delay: ${delay}s;">
+                            <div class="img-wrap position-relative">
+                                <img src="${imageUrl}" class="card-img-top" alt="${blog.title}">
+                                <span class="position-absolute top-0 start-0 m-3 badge-pastel shadow-sm">${blog.category}</span>
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title">${blog.title}</h4>
                                 <p class="card-text">${contentSnippet}</p>
-                            </div>
-                            <div class="card-footer d-flex justify-content-between align-items-center">
-                                <div class="text-muted" style="font-size: 0.85rem; font-weight: 500;"><i class="fa-regular fa-clock me-1"></i> ${date}</div>
-                                <a href="/blog/${blog.id}" class="text-decoration-none fw-semibold px-3 py-1 rounded-pill" style="background: rgba(255,255,255,0.03); color: var(--text-main); transition: 0.2s; font-size: 0.85rem; border: 1px solid var(--border-dark);">Read</a>
+                                <div class="card-footer d-flex justify-content-between align-items-center mt-3">
+                                    <div class="text-muted" style="font-size: 0.85rem; font-weight: 500;"><i class="fa-regular fa-clock me-1"></i> ${date}</div>
+                                    <a href="/blog/${blog.id}" class="btn btn-light btn-sm fw-semibold">Read More</a>
+                                </div>
                             </div>
                         </article>
                     `;

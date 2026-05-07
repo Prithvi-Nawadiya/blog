@@ -154,6 +154,43 @@ h1, h2, h3, h4, h5, h6, .text-white {
     .why-choose .why-list { grid-template-columns: 1fr; }
 }
 
+/* Horizontal news-style card layout for Explore */
+.horizontal-card { display: flex; gap: 1rem; align-items: stretch; border-radius: 12px; overflow: hidden; padding: 12px; }
+.horizontal-card .img-wrap { flex: 0 0 280px; max-width: 40%; position: relative; border-radius: 12px; overflow: hidden; }
+.horizontal-card .img-wrap img.card-img-top { width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 8px; }
+.horizontal-card .card-body { display: flex; flex-direction: column; justify-content: center; padding: 8px 12px; flex: 1 1 auto; }
+.horizontal-card .card-title { font-size: 1.15rem; margin-bottom: 6px; }
+.horizontal-card .card-text { color: var(--text-muted); margin-bottom: 8px; }
+.horizontal-card .card-footer { border-top: none; padding-top: 0; }
+.horizontal-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.45), 0 0 40px rgba(139,92,246,0.05); border-color: var(--border-hover); }
+
+/* Responsive: stack image above content on small screens */
+@media (max-width: 768px) {
+    .horizontal-card { flex-direction: column; }
+    .horizontal-card .img-wrap { width: 100%; max-width: 100%; flex: 0 0 auto; }
+    .horizontal-card .img-wrap img.card-img-top { height: 200px; }
+}
+
+/* Filter row alignment improvements */
+.filter-bar { padding: 12px; align-items: center; }
+.filter-bar .position-relative { flex: 1 1 0%; }
+.filter-bar > div { display: flex; align-items: center; }
+.filter-bar input, .filter-bar select, .filter-bar .btn { height: 48px; }
+.filter-bar .btn { min-width: 120px; }
+
+/* Hero tweaks for balance */
+.hero-section { padding: 80px 0 60px; }
+.hero-title { font-size: 3rem; }
+@media (max-width: 768px) { .hero-title { font-size: 2rem; } }
+
+/* About section polishing */
+.about-section { padding: 56px 0 36px; }
+.about-section .text-center { margin-bottom: 18px; }
+.about-cards { gap: 1rem; }
+.about-card { padding: 18px; border-radius: 12px; }
+.why-choose { gap: 1rem; }
+.more-section { margin-top: 18px; }
+
 .premium-card:hover .card-img-top {
     transform: scale(1.03);
     filter: brightness(1);
