@@ -135,6 +135,25 @@ h1, h2, h3, h4, h5, h6, .text-white {
 .about-card h4 { margin-bottom: 8px; color: var(--text-heading); }
 .about-card p { color: var(--text-muted); margin: 0; }
 
+/* Feature grid specifics */
+.feature-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.feature-card { padding: 20px; border-radius: 14px; transition: transform 0.25s ease, box-shadow 0.25s ease; display: flex; flex-direction: column; gap: 10px; }
+.feature-card .icon { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(139,92,246,0.08); color: var(--accent-muted); font-size: 1.25rem; }
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,0.35), 0 0 30px rgba(139,92,246,0.06); border-color: var(--border-hover); }
+
+.why-choose { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
+.why-choose .why-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; }
+.why-choose .why-list li { position: relative; padding-left: 26px; }
+.why-choose .why-list li:before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 0; color: var(--accent-muted); font-size: 0.8rem; }
+
+.more-section { margin-top: 14px; border-radius: 12px; }
+
+@media (max-width: 768px) {
+    .feature-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+    .why-choose { flex-direction: column; }
+    .why-choose .why-list { grid-template-columns: 1fr; }
+}
+
 .premium-card:hover .card-img-top {
     transform: scale(1.03);
     filter: brightness(1);

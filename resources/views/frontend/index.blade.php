@@ -44,28 +44,82 @@
 </div>
 
 <!-- About Section -->
-<div class="about-section container-fluid px-0 fade-in-up">
-    <div class="mx-auto" style="max-width: 1000px;">
-        <div class="text-center mb-3">
-            <h2 class="fw-bold text-heading">About HireOn</h2>
-            <p class="text-muted" style="max-width: 780px; margin: 0 auto;">Fast updates, verified information, and a mobile-first reading experience — curated for professionals and students alike.</p>
+<section id="about" class="about-section container-fluid px-0 fade-in-up">
+    <div class="mx-auto" style="max-width: 1100px;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-heading">About Hireon</h2>
+            <p class="text-muted mx-auto" style="max-width: 880px; line-height: 1.7;">
+                Hireon is a modern career and update platform designed to help students, freshers, and job seekers stay informed with the latest opportunities. From government jobs and internships to admit cards and exam results, Hireon brings all important updates together in one clean and easy-to-access platform.
+            </p>
+            <p class="text-muted mx-auto" style="max-width: 880px; line-height: 1.7;">
+                Our goal is to provide fast, reliable, and user-friendly access to career-related information without unnecessary clutter. Whether you are preparing for competitive exams, searching for internships, or tracking recruitment notifications, Hireon helps you stay ahead.
+            </p>
         </div>
-        <div class="about-cards">
-            <div class="about-card">
+
+        <!-- Features Grid -->
+        <div class="about-cards feature-grid mb-4">
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-bolt"></i></div>
                 <h4>Fast Updates</h4>
-                <p>Timely posts and curated job updates so you never miss an important announcement.</p>
+                <p>Get the latest job notifications, internships, admit cards, and exam results quickly.</p>
             </div>
-            <div class="about-card">
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-shield-check"></i></div>
                 <h4>Verified Information</h4>
-                <p>We prioritize accurate sources and verification for official notices and results.</p>
+                <p>All updates are curated carefully from trusted and official sources.</p>
             </div>
-            <div class="about-card">
-                <h4>Mobile Friendly Experience</h4>
-                <p>Read comfortably on any device with a clean, readable layout optimized for mobile.</p>
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h4>Mobile Friendly</h4>
+                <p>Seamless experience across desktop, tablet, and mobile devices.</p>
             </div>
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <h4>Smart Search</h4>
+                <p>Quickly search for jobs, results, and updates using responsive AJAX-powered search.</p>
+            </div>
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-filter"></i></div>
+                <h4>Category Filters</h4>
+                <p>Browse updates easily with dedicated categories like Jobs, Results, and Admit Cards.</p>
+            </div>
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-desktop"></i></div>
+                <h4>Responsive UI</h4>
+                <p>Modern dark premium interface optimized for both laptops and smartphones.</p>
+            </div>
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-route"></i></div>
+                <h4>Easy Navigation</h4>
+                <p>Simple and clean layout for smooth browsing experience.</p>
+            </div>
+            <div class="about-card feature-card">
+                <div class="icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <h4>Real-Time Access</h4>
+                <p>Stay updated with newly published opportunities and announcements instantly.</p>
+            </div>
+        </div>
+
+        <!-- Why Choose Hireon -->
+        <div class="why-choose mb-4">
+            <h5 class="text-heading fw-bold mb-3">Why Choose Hireon</h5>
+            <ul class="why-list text-muted">
+                <li>Clean and modern interface</li>
+                <li>Faster access to important updates</li>
+                <li>Responsive and user-friendly experience</li>
+                <li>Organized job and result categories</li>
+                <li>Easy filtering and searching system</li>
+                <li>Designed for students and job seekers</li>
+            </ul>
+        </div>
+
+        <!-- More -->
+        <div class="more-section glass-panel p-3 p-md-4">
+            <h5 class="text-heading fw-bold">More</h5>
+            <p class="text-muted mb-0">Hireon is continuously evolving to provide a better experience for users looking for career opportunities and educational updates. More features, smarter filters, and enhanced user experience improvements will be added in future updates.</p>
         </div>
     </div>
-</div>
+</section>
 
 <!-- Trending topics removed per request -->
 
