@@ -41,14 +41,7 @@
     </div>
 </div>
 
-<!-- Extra Depth Section: Trending/Featured Bar -->
-<div class="d-flex flex-wrap justify-content-center gap-3 mb-5 pb-3 fade-in-up" style="animation-delay: 0.1s;">
-    <span class="text-muted fw-medium d-flex align-items-center me-2" style="font-size: 0.85rem;"><i class="fa-solid fa-bolt me-2" style="color: var(--accent-muted);"></i> Trending Topics:</span>
-    <button class="btn btn-sm btn-light border-0 px-3 py-1 fw-medium" style="font-size: 0.8rem; border-radius: 20px;" onclick="$('#categoryFilter').val('Technology').trigger('change')">Technology</button>
-    <button class="btn btn-sm btn-light border-0 px-3 py-1 fw-medium" style="font-size: 0.8rem; border-radius: 20px;" onclick="$('#categoryFilter').val('Design').trigger('change')">Design</button>
-    <button class="btn btn-sm btn-light border-0 px-3 py-1 fw-medium" style="font-size: 0.8rem; border-radius: 20px;" onclick="$('#categoryFilter').val('Startups').trigger('change')">Startups</button>
-    <button class="btn btn-sm btn-light border-0 px-3 py-1 fw-medium" style="font-size: 0.8rem; border-radius: 20px;" onclick="$('#categoryFilter').val('Engineering').trigger('change')">Engineering</button>
-</div>
+<!-- Trending topics removed per request -->
 
 @if(isset($featured) && $featured->count())
 <div class="row g-4 mb-5 fade-in-up">
