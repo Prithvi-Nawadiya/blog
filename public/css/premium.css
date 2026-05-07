@@ -79,7 +79,8 @@ h1, h2, h3, h4, h5, h6, .text-white {
 }
 
 .card-img-top {
-    height: 220px;
+    width: 100%;
+    aspect-ratio: 16/9;
     object-fit: cover;
     border-radius: 16px 16px 0 0;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -174,7 +175,8 @@ h1, h2, h3, h4, h5, h6, .text-white {
 }
 .horizontal-card .img-wrap img.card-img-top { 
     width: 100%; 
-    height: 100%; 
+    height: 100%;
+    aspect-ratio: 16/10;
     object-fit: cover; 
     display: block; 
     border-radius: 0;
@@ -217,7 +219,8 @@ h1, h2, h3, h4, h5, h6, .text-white {
 /* Responsive: stack image above content on small screens */
 @media (max-width: 992px) {
     .horizontal-card { flex-direction: column; }
-    .horizontal-card .img-wrap { width: 100%; flex: 0 0 240px; }
+    .horizontal-card .img-wrap { width: 100%; flex: 0 0 auto; padding-right: 0; }
+    .horizontal-card .img-wrap img.card-img-top { aspect-ratio: 16/9; }
     .horizontal-card .card-body { padding: 20px !important; }
     .horizontal-card .card-title { font-size: 1.3rem; }
 }
@@ -519,11 +522,25 @@ h1, h2, h3, h4, h5, h6, .text-white {
     border-radius: 6px !important;
     overflow: auto !important;
 }
-.ck-content table { width: 100% !important; border-collapse: collapse !important; }
+.ck-content table { width: 100% !important; border-collapse: collapse !important; margin: 1.5rem 0; }
 .ck-content table th, .ck-content table td {
     border: 1px solid rgba(255,255,255,0.06) !important;
-    padding: 8px !important;
+    padding: 12px !important;
     color: var(--text-main) !important;
+}
+
+/* Responsive Table Wrapper for blog content */
+.card-text table, .ck-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ck-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
 }
 
 /* Focus */
