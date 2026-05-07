@@ -64,25 +64,150 @@
 </div>
 @endsection
 
+@push('styles')
+<style>
+    /* CKEditor 5 Dark Theme Fixes */
+    :root {
+        --ck-color-base-foreground: #2d2d30;
+        --ck-color-base-background: #1e1e1e;
+        --ck-color-focus-border: #4c1d95;
+        --ck-color-text: #e4e4e7;
+        --ck-color-shadow-outer: rgba(0, 0, 0, 0.2);
+    }
+    
+    .ck-reset_all, .ck-reset_all * {
+        color: var(--ck-color-text) !important;
+    }
+
+    .ck.ck-editor__main>.ck-editor__editable {
+        background: rgba(0,0,0,0.2) !important;
+        border-color: rgba(255,255,255,0.1) !important;
+        color: #e4e4e7 !important;
+    }
+
+    .ck.ck-dropdown .ck-dropdown__panel {
+        background: #202024 !important;
+        border: 1px solid #3f3f46 !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .ck.ck-list {
+        background: #202024 !important;
+    }
+
+    .ck.ck-list__item .ck-button {
+        background: transparent !important;
+        color: #e4e4e7 !important;
+    }
+
+    .ck.ck-list__item .ck-button:hover:not(.ck-disabled) {
+        background: #3f3f46 !important;
+    }
+
+    .ck.ck-list__item .ck-button.ck-on {
+        background: #4c1d95 !important;
+        color: #fff !important;
+    }
+
+    .ck.ck-toolbar {
+        background: #202024 !important;
+        border-color: #3f3f46 !important;
+    }
+
+    .ck.ck-button {
+        color: #e4e4e7 !important;
+    }
+
+    .ck.ck-button:hover {
+        background: #3f3f46 !important;
+    }
+
+    .ck.ck-insert-table-dropdown__grid {
+        background: #202024 !important;
+        border: 1px solid #3f3f46 !important;
+    }
+</style>
+@endpush
+
 @push('scripts')
-<!-- CKEditor 5 Classic build with Base64 upload support -->
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
 <script>
+    class MyUploadAdapter {
+        constructor(loader) {
+            this.loader = loader;
+        }
+
+        upload() {
+            return this.loader.file
+                .then(file => new Promise((resolve, reject) => {
+                    this._initRequest();
+                    this._initListeners(resolve, reject, file);
+                    this._sendRequest(file);
+                }));
+        }
+
+        abort() {
+            if (this.xhr) {
+                this.xhr.abort();
+            }
+        }
+
+        _initRequest() {
+            const xhr = this.xhr = new XMLHttpRequest();
+            xhr.open('POST', '{{ route('admin.upload-image') }}', true);
+            xhr.setRequestHeader('x-csrf-token', '{{ csrf_token() }}');
+            xhr.responseType = 'json';
+        }
+
+        _initListeners(resolve, reject, file) {
+            const xhr = this.xhr;
+            const loader = this.loader;
+            const genericErrorText = `Couldn't upload file: ${file.name}.`;
+
+            xhr.addEventListener('error', () => reject(genericErrorText));
+            xhr.addEventListener('abort', () => reject());
+            xhr.addEventListener('load', () => {
+                const response = xhr.response;
+                if (!response || response.error) {
+                    return reject(response && response.error ? response.error : genericErrorText);
+                }
+                resolve({
+                    default: response.url
+                });
+            });
+
+            if (xhr.upload) {
+                xhr.upload.addEventListener('progress', evt => {
+                    if (evt.lengthComputable) {
+                        loader.uploadTotal = evt.total;
+                        loader.uploaded = evt.loaded;
+                    }
+                });
+            }
+        }
+
+        _sendRequest(file) {
+            const data = new FormData();
+            data.append('upload', file);
+            this.xhr.send(data);
+        }
+    }
+
+    function MyCustomUploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+            return new MyUploadAdapter(loader);
+        };
+    }
+
     document.addEventListener('DOMContentLoaded', function(){
         let createEditorInstance;
-    ClassicEditor.create(document.querySelector('#contentEditor'), {
+        ClassicEditor.create(document.querySelector('#contentEditor'), {
+            extraPlugins: [MyCustomUploadAdapterPlugin],
             toolbar: [ 'heading','|','bold','italic','link','bulletedList','numberedList','|','insertTable','blockQuote','code','undo','redo','imageUpload' ],
-            heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading1', view: 'h2', title: 'Heading 1', class: 'ck-heading_heading1' }, { model: 'heading2', view: 'h3', title: 'Heading 2', class: 'ck-heading_heading2' } ] },
-            simpleUpload: {
-                uploadUrl: '{{ route('admin.upload-image') }}',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            }
+            heading: { options: [ { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }, { model: 'heading1', view: 'h2', title: 'Heading 1', class: 'ck-heading_heading1' }, { model: 'heading2', view: 'h3', title: 'Heading 2', class: 'ck-heading_heading2' } ] }
         }).then(editor => {
             createEditorInstance = editor;
 
-            // helper to strip HTML and check for meaningful text
             function stripHtml(html) {
                 const tmp = document.createElement('div');
                 tmp.innerHTML = html;
@@ -93,7 +218,6 @@
             const textarea = document.querySelector('#contentEditor');
             const clientError = document.getElementById('clientContentError');
 
-            // remove client error when user types
             editor.model.document.on('change:data', function() {
                 const text = stripHtml(editor.getData()).trim();
                 if (text.length > 0) {
@@ -107,18 +231,14 @@
                 form.addEventListener('submit', function(e){
                     if (createEditorInstance) {
                         const data = createEditorInstance.getData();
-                        // sync editor data back to textarea so server receives it
                         textarea.value = data;
-
                         const text = stripHtml(data).trim();
                         if (text.length === 0) {
-                            // prevent native form submit and show friendly message
                             e.preventDefault();
                             clientError.textContent = 'Please enter some content for your update.';
                             clientError.style.display = 'block';
                             textarea.classList.add('is-invalid');
-                            // focus the editor so user can start typing
-                            try { createEditorInstance.editing.view.focus(); } catch(err) { /* ignore */ }
+                            try { createEditorInstance.editing.view.focus(); } catch(err) { }
                             return false;
                         }
                     }
