@@ -191,14 +191,14 @@ $(document).ready(function() {
                         <article class="premium-card horizontal-card fade-in-up" style="animation-delay: ${delay}s;">
                             <div class="img-wrap position-relative">
                                 <img src="${imageUrl}" class="card-img-top" alt="${blog.title}">
-                                <span class="position-absolute top-0 start-0 m-3 badge-pastel shadow-sm">${blog.category}</span>
                             </div>
                             <div class="card-body">
+                                <span class="badge-pastel small-badge mb-2">${blog.category}</span>
                                 <h4 class="card-title">${blog.title}</h4>
                                 <p class="card-text">${contentSnippet}</p>
                                 <div class="card-footer d-flex justify-content-between align-items-center mt-3">
                                     <div class="text-muted" style="font-size: 0.85rem; font-weight: 500;"><i class="fa-regular fa-clock me-1"></i> ${date}</div>
-                                    <a href="/blog/${blog.id}" class="btn btn-light btn-sm fw-semibold">Read More</a>
+                                    <a href="/blog/${blog.id}" class="btn btn-outline-premium btn-sm fw-semibold">Read More &rarr;</a>
                                 </div>
                             </div>
                         </article>
