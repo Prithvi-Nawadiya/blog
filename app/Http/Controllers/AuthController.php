@@ -57,7 +57,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Registration successful! Please check your email to verify your account.');
+        return redirect()->route('admin.dashboard')->with('success', 'Registration successful! Welcome to your dashboard.');
     }
 
     public function logout(Request $request)
