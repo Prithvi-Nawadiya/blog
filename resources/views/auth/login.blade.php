@@ -32,7 +32,7 @@
                     <a href="{{ route('password.request') }}" class="text-decoration-none text-muted hover-text-white" style="font-size: 0.9rem;">Forgot password?</a>
                 </div>
                 
-                <button type="submit" class="btn btn-premium w-100 py-2 mb-4 fw-medium">Sign In <i class="fa-solid fa-arrow-right ms-2"></i></button>
+                <button type="submit" class="btn btn-premium w-100 py-2 mb-4 fw-medium">Admin Login <i class="fa-solid fa-arrow-right ms-2"></i></button>
                 
 
             </form>

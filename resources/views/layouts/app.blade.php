@@ -50,7 +50,7 @@
                             </ul>
                         </li>
                     @else
-                        <li class="nav-item"><a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('login') }}">Sign In</a></li>
+                        <li class="nav-item"><a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('login') }}">Admin Login</a></li>
                         <li class="nav-item ms-lg-3"><a class="btn btn-premium shadow-sm py-1 px-3 fs-6" href="#contact">Contact Us</a></li>
                     @endauth
                 </ul>
