@@ -73,38 +73,38 @@
 
 @push('styles')
 <style>
-    /* CKEditor 5 Dark Theme Fixes */
+    /* CKEditor 5 Dark Theme Fixes - Enhanced Visibility */
     :root {
         --ck-color-base-foreground: #2d2d30;
         --ck-color-base-background: #1e1e1e;
         --ck-color-focus-border: #4c1d95;
-        --ck-color-text: #e4e4e7;
-        --ck-color-shadow-outer: rgba(0, 0, 0, 0.2);
+        --ck-color-text: #ffffff;
+        --ck-color-shadow-outer: rgba(0, 0, 0, 0.4);
     }
     
     .ck-reset_all, .ck-reset_all * {
-        color: var(--ck-color-text) !important;
+        color: #ffffff !important;
     }
 
     .ck.ck-editor__main>.ck-editor__editable {
-        background: rgba(0,0,0,0.2) !important;
-        border-color: rgba(255,255,255,0.1) !important;
-        color: #e4e4e7 !important;
+        background: rgba(0,0,0,0.3) !important;
+        border-color: rgba(255,255,255,0.15) !important;
+        color: #ffffff !important;
     }
 
     .ck.ck-dropdown .ck-dropdown__panel {
-        background: #202024 !important;
-        border: 1px solid #3f3f46 !important;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+        background: #18181b !important;
+        border: 1px solid #52525b !important;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7) !important;
     }
 
     .ck.ck-list {
-        background: #202024 !important;
+        background: #18181b !important;
     }
 
     .ck.ck-list__item .ck-button {
         background: transparent !important;
-        color: #e4e4e7 !important;
+        color: #ffffff !important;
     }
 
     .ck.ck-list__item .ck-button:hover:not(.ck-disabled) {
@@ -117,12 +117,16 @@
     }
 
     .ck.ck-toolbar {
-        background: #202024 !important;
+        background: #18181b !important;
         border-color: #3f3f46 !important;
     }
 
     .ck.ck-button {
-        color: #e4e4e7 !important;
+        color: #ffffff !important;
+    }
+
+    .ck.ck-button .ck-icon {
+        color: #ffffff !important;
     }
 
     .ck.ck-button:hover {
@@ -130,8 +134,18 @@
     }
 
     .ck.ck-insert-table-dropdown__grid {
-        background: #202024 !important;
-        border: 1px solid #3f3f46 !important;
+        background: #18181b !important;
+        border: 1px solid #52525b !important;
+        padding: 5px !important;
+    }
+
+    .ck.ck-insert-table-dropdown__grid .ck-insert-table-dropdown__grid__cell {
+        border: 1px solid rgba(255,255,255,0.3) !important;
+    }
+
+    .ck.ck-insert-table-dropdown__grid .ck-insert-table-dropdown__grid__cell.ck-on {
+        background: #4c1d95 !important;
+        border-color: #7c3aed !important;
     }
 </style>
 @endpush
