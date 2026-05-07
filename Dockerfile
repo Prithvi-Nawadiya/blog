@@ -12,8 +12,9 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-RUN php artisan storage:link
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 10000
 
-CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=$PORT
+CMD ["/usr/local/bin/entrypoint.sh"]

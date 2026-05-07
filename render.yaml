@@ -2,8 +2,12 @@ services:
   - type: web
     name: blog-app
     env: docker
-    plan: free
+    plan: starter
     region: oregon
+    disk:
+      name: blog-storage
+      mountPath: /app/storage
+      sizeGB: 1
     envVars:
       - key: APP_KEY
         generateValue: true
