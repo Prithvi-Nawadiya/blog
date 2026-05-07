@@ -22,6 +22,8 @@ Route::get('/filter', [BlogController::class, 'filter']);
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Password Reset Routes
@@ -34,8 +36,8 @@ Route::post('/reset-password', [AuthController::class, 'resetPassword'])->middle
 
 
 
-// Admin Routes (Protected)
-Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+// Admin Routes (Protected - Only for admins)
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/create', [AdminController::class, 'create'])->name('create');
     Route::post('/upload-image', [AdminController::class, 'uploadImage'])->name('upload-image');
