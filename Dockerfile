@@ -15,6 +15,8 @@ RUN touch /app/database/database.sqlite
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
+RUN php artisan storage:link
+
 EXPOSE 10000
 
 CMD php artisan migrate:fresh --seed --force && php artisan serve --host=0.0.0.0 --port=$PORT
