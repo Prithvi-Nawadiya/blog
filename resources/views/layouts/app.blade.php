@@ -24,10 +24,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item me-3">
-                        <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('frontend.index') }}#about" id="navAbout">About</a>
+                        <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('frontend.index') }}">Explore</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('frontend.index') }}">Explore</a>
+                        <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('frontend.index') }}#about" id="navAbout">About</a>
                     </li>
                     @auth
                         <li class="nav-item me-3"><a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
