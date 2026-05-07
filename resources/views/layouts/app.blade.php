@@ -30,7 +30,7 @@
                         <li class="nav-item me-3"><a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     @endauth
                     <li class="nav-item me-3">
-                        <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('frontend.index') }}#about" id="navAbout">About</a>
+                        <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100 {{ request()->routeIs('frontend.about') ? 'active' : '' }}" href="{{ route('frontend.about') }}">About</a>
                     </li>
                     @auth
                         <li class="nav-item dropdown">
@@ -116,21 +116,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Smooth scroll for internal anchors (About link)
-        (function(){
-            function smoothScrollTo(selector) {
-                var el = document.querySelector(selector);
-                if (!el) return;
-                var offset = 80; // account for sticky navbar
-                var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top: top, behavior: 'smooth' });
-            }
-
-            document.addEventListener('click', function(e){
-                var target = e.target.closest('a[href^="#about"]');
-                if (target) { e.preventDefault(); smoothScrollTo('#about'); }
-            });
-        })();
     </script>
     @stack('scripts')
 </body>

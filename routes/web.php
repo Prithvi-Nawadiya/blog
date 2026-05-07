@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about');
 Route::get('/blog/{id}', [FrontendController::class, 'show'])->name('frontend.show');
 
 Route::get('/filter', [BlogController::class, 'filter']);

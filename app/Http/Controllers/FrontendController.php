@@ -25,4 +25,9 @@ class FrontendController extends Controller
         $blog = Blog::findOrFail($id);
         return view('frontend.show', compact('blog'));
     }
+
+    public function about()
+    {
+        return view('frontend.about');
+    }
 }

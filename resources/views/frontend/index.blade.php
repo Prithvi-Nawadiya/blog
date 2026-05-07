@@ -1,87 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="hero-section fade-in-up">
-    <div class="d-flex justify-content-center mb-3">
-        <span class="badge-pastel px-3 py-1 fs-6 border rounded-pill shadow-sm d-inline-flex align-items-center gap-2" style="font-size: 0.8rem !important;">
-            <span class="spinner-grow spinner-grow-sm" role="status" style="width: 6px; height: 6px; color: var(--accent-muted);"></span> 
-            HireOn is live
-        </span>
-    </div>
-    
-    <h1 class="hero-title">Your Daily Hub for Jobs, Results &amp; Admit Cards</h1>
-    <p class="text-muted fs-5 mb-4 mx-auto" style="max-width: 650px; line-height: 1.6;">
-        Explore the latest government and private job opportunities, instant result updates, admit card notifications, internships, and career alerts — all in one modern platform designed to keep students and job seekers ahead.
+<div class="hero-section fade-in-up pb-5">
+    <h1 class="hero-title text-start mb-2" style="font-size: 3.5rem;">Explore Blogs</h1>
+    <p class="text-muted fs-5 mb-0 text-start" style="max-width: 700px; line-height: 1.6;">
+        Stay updated with the latest job alerts, results, admit cards, and career opportunities from across the industry.
     </p>
+</div>
     
-    <div class="glass-panel p-2 mx-auto shadow-sm" style="max-width: 900px; border-radius: 12px; margin-bottom: 30px;">
-        <div class="d-flex filter-bar align-items-center" style="gap:10px;">
-            <div class="position-relative flex-grow-1" style="min-width: 160px;">
-                <i class="fa-solid fa-magnifying-glass position-absolute text-muted fs-6" style="left: 16px; top: 12px;"></i>
-                <input type="text" id="searchInput" class="form-control form-control-sm filter-control ps-5" placeholder="Search curated articles..." aria-label="Search" autocomplete="off">
-                <div id="searchSuggestions" class="search-suggestions d-none" aria-hidden="true"></div>
-            </div>
-
-            <div style="min-width: 200px;">
-                <select id="categoryFilter" class="form-select form-select-sm filter-control fw-medium text-muted" aria-label="Category filter">
-                    <option value="">All Topics</option>
-                    <option value="Admit Cards">Admit Cards</option>
-                    <option value="Results">Results</option>
-                    <option value="Latest Jobs">Latest Jobs</option>
-                </select>
-            </div>
-
-            <div style="min-width: 170px;">
-                <input id="dateFilter" type="date" class="form-control form-control-sm filter-control text-muted" aria-label="Exact publish date" />
-            </div>
-
-            <div style="width:44px;">
-                <button id="clearDateBtn" type="button" class="btn btn-light filter-control border-0 d-flex align-items-center justify-content-center" title="Clear date"><i class="fa-solid fa-xmark text-muted"></i></button>
-            </div>
+<!-- Modern Search/Filter Bar -->
+<div class="glass-panel p-3 shadow-sm mb-5 fade-in-up" style="border-radius: 12px; margin-top: -20px; position: relative; z-index: 10;">
+    <div class="d-flex filter-bar align-items-center gap-3">
+        <div class="position-relative flex-grow-1">
+            <i class="fa-solid fa-magnifying-glass position-absolute text-muted fs-6" style="left: 18px; top: 18px;"></i>
+            <input type="text" id="searchInput" class="form-control filter-control ps-5" style="height: 54px; font-size: 1rem;" placeholder="Search for jobs, results, or articles..." aria-label="Search" autocomplete="off">
+            <div id="searchSuggestions" class="search-suggestions d-none" aria-hidden="true"></div>
         </div>
+
+        <div style="min-width: 240px;">
+            <select id="categoryFilter" class="form-select filter-control fw-medium text-muted" style="height: 54px;" aria-label="Category filter">
+                <option value="">All Categories</option>
+                <option value="Admit Cards">Admit Cards</option>
+                <option value="Results">Results</option>
+                <option value="Latest Jobs">Latest Jobs</option>
+                <option value="Government Jobs">Government Jobs</option>
+            </select>
         </div>
+
+        <div style="min-width: 180px;">
+            <input id="dateFilter" type="date" class="form-control filter-control text-muted" style="height: 54px;" aria-label="Exact publish date" />
+        </div>
+
+        <div style="width:54px;">
+            <button id="clearDateBtn" type="button" class="btn btn-light filter-control border-0 d-flex align-items-center justify-content-center" style="width: 54px; height: 54px;" title="Clear date"><i class="fa-solid fa-xmark text-muted fs-5"></i></button>
+        </div>
+        
+        <button class="btn btn-premium d-flex align-items-center gap-2" style="height: 54px; padding: 0 30px;">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+        </button>
     </div>
 </div>
 
-<!-- About Section (moved below blog list) -->
-<section id="about" class="about-section container-fluid px-0 fade-in-up mt-4">
-    <div class="mx-auto" style="max-width: 1100px;">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold text-heading">About Hireon</h2>
-            <p class="text-muted mx-auto" style="max-width: 880px; line-height: 1.7;">
-                Hireon is a modern career and update platform designed to help students, freshers, and job seekers stay informed with the latest opportunities. From government jobs and internships to admit cards and exam results, Hireon brings all important updates together in one clean and easy-to-access platform.
-            </p>
-            <p class="text-muted mx-auto" style="max-width: 880px; line-height: 1.7;">
-                Our goal is to provide fast, reliable, and user-friendly access to career-related information without unnecessary clutter. Whether you are preparing for competitive exams, searching for internships, or tracking recruitment notifications, Hireon helps you stay ahead.
-            </p>
-        </div>
-
-        <!-- Features Grid -->
-        <div class="about-cards feature-grid mb-4">
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-bolt"></i></div>
-                <h4>Fast Updates</h4>
-                <p>Get the latest job notifications, internships, admit cards, and exam results quickly.</p>
-            </div>
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-shield-check"></i></div>
-                <h4>Verified Information</h4>
-                <p>All updates are curated carefully from trusted and official sources.</p>
-            </div>
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                <h4>Mobile Friendly</h4>
-                <p>Seamless experience across desktop, tablet, and mobile devices.</p>
-            </div>
-        </div>
-
-        <!-- More -->
-        <div class="more-section glass-panel p-3 p-md-4">
-            <h5 class="text-heading fw-bold">More</h5>
-            <p class="text-muted mb-0">Hireon is continuously evolving to provide a better experience for users looking for career opportunities and educational updates. More features, smarter filters, and enhanced user experience improvements will be added in future updates.</p>
-        </div>
-    </div>
-</section>
 
 <!-- Trending topics removed per request -->
 
@@ -150,17 +109,23 @@ $(document).ready(function() {
                     let delay = index * 0.04;
 
                     let card = `
-                        <article class="premium-card horizontal-card fade-in-up" style="animation-delay: ${delay}s;">
-                            <div class="img-wrap position-relative">
+                        <article class="horizontal-card fade-in-up" style="animation-delay: ${delay}s;">
+                            <div class="img-wrap">
                                 <img src="${imageUrl}" class="card-img-top" alt="${blog.title}">
                             </div>
                             <div class="card-body">
-                                <span class="badge-pastel small-badge mb-2">${blog.category}</span>
-                                <h4 class="card-title">${blog.title}</h4>
-                                <p class="card-text">${contentSnippet}</p>
-                                <div class="card-footer d-flex justify-content-between align-items-center mt-3">
-                                    <div class="text-muted" style="font-size: 0.85rem; font-weight: 500;"><i class="fa-regular fa-clock me-1"></i> ${date}</div>
-                                    <a href="/blog/${blog.id}" class="btn btn-outline-premium btn-sm fw-semibold">Read More &rarr;</a>
+                                <div>
+                                    <span class="badge-pastel mb-3">${blog.category}</span>
+                                    <h2 class="card-title">${blog.title}</h2>
+                                    <p class="card-text">${contentSnippet}</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <div class="text-muted d-flex align-items-center gap-3" style="font-size: 0.9rem;">
+                                        <span><i class="fa-regular fa-calendar-days me-2"></i>${date}</span>
+                                        <span class="opacity-25">|</span>
+                                        <span><i class="fa-regular fa-user me-2"></i>By Admin</span>
+                                    </div>
+                                    <a href="/blog/${blog.id}" class="btn btn-premium btn-sm px-4 py-2" style="border-radius: 8px;">Read More <i class="fa-solid fa-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </article>
