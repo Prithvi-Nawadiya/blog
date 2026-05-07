@@ -123,23 +123,7 @@
 
 <!-- Trending topics removed per request -->
 
-@if(isset($featured) && $featured->count())
-<div class="row g-4 mb-5 fade-in-up">
-    @foreach($featured as $f)
-        <div class="col-md-4">
-            <div class="card featured-card h-100">
-                @php $img = $f->image_url ?: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; @endphp
-                <img src="{{ $img }}" class="card-img-top" alt="{{ $f->title }}">
-                <div class="card-body">
-                    <span class="badge-pastel mb-2 px-3 py-1 rounded-pill shadow-sm fw-medium border-0" style="font-size: 0.75rem;">{{ $f->category }}</span>
-                    <h5 class="fw-bold" style="font-size: 1.05rem;">{{ $f->title }}</h5>
-                    <div class="text-muted mt-2" style="font-size: 0.85rem;"><i class="fa-regular fa-calendar me-1"></i> {{ $f->created_at->format('F j, Y') }}</div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-@endif
+<!-- Featured section removed to avoid duplicate blog rendering. All blogs are rendered via the premium AJAX card grid. -->
 
 <div id="loading" class="text-center d-none my-5 py-4">
     <div class="spinner-grow opacity-75" style="width: 2rem; height: 2rem; color: var(--accent-muted);" role="status"></div>
