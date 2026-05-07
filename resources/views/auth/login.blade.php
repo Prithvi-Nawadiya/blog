@@ -35,7 +35,7 @@
                 <button type="submit" class="btn btn-premium w-100 py-2 mb-4 fw-medium">Sign In <i class="fa-solid fa-arrow-right ms-2"></i></button>
                 
                 <div class="text-center pt-3 border-top border-dark">
-                    <span class="text-muted" style="font-size: 0.9rem;">New to AuraBlog?</span> 
+                    <span class="text-muted" style="font-size: 0.9rem;">New to HireOn?</span> 
                     <a href="{{ route('register') }}" class="text-decoration-none fw-medium ms-1 text-white" style="font-size: 0.9rem;">Create an account</a>
                 </div>
             </form>

@@ -8,7 +8,7 @@
                 <div class="d-inline-flex align-items-center justify-content-center rounded-circle shadow-sm mb-3" style="width:70px; height:70px; background: rgba(139, 92, 246, 0.1);">
                     <i class="fa-solid fa-feather fs-3 text-white"></i>
                 </div>
-                <h2 class="fw-bold mb-1 text-white" style="letter-spacing: -0.5px; font-size: 2rem;">Join AuraBlog</h2>
+                <h2 class="fw-bold mb-1 text-white" style="letter-spacing: -0.5px; font-size: 2rem;">Join HireOn</h2>
                 <p class="text-muted" style="font-size: 0.95rem;">Create your creative space today.</p>
             </div>
 
@@ -21,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label fw-medium text-muted ms-1 small text-uppercase tracking-wider" style="font-size: 0.75rem;">Email Address</label>
-                    <input type="email" name="email" class="form-control shadow-sm" required value="{{ old('email') }}" placeholder="hello@aurablog.com">
+                    <input type="email" name="email" class="form-control shadow-sm" required value="{{ old('email') }}" placeholder="hello@hireon.com">
                     @error('email') <div class="text-danger small mt-1 ms-1 fw-medium">{{ $message }}</div> @enderror
                 </div>
                 <div class="mb-3">

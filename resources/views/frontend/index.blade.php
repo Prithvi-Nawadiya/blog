@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-center mb-3">
         <span class="badge-pastel px-3 py-1 fs-6 border rounded-pill shadow-sm d-inline-flex align-items-center gap-2" style="font-size: 0.8rem !important;">
             <span class="spinner-grow spinner-grow-sm" role="status" style="width: 6px; height: 6px; color: var(--accent-muted);"></span> 
-            BlogYaari 2.0 is live
+            HireOn is live
         </span>
     </div>
     
@@ -47,7 +47,7 @@
 <div class="about-section container-fluid px-0 fade-in-up">
     <div class="mx-auto" style="max-width: 1000px;">
         <div class="text-center mb-3">
-            <h2 class="fw-bold text-heading">About BlogYaari</h2>
+            <h2 class="fw-bold text-heading">About HireOn</h2>
             <p class="text-muted" style="max-width: 780px; margin: 0 auto;">Fast updates, verified information, and a mobile-first reading experience — curated for professionals and students alike.</p>
         </div>
         <div class="about-cards">
