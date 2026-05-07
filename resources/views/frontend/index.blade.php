@@ -9,9 +9,9 @@
         </span>
     </div>
     
-    <h1 class="hero-title">Thoughts, stories and ideas.</h1>
+    <h1 class="hero-title">Your Daily Hub for Jobs, Results &amp; Admit Cards</h1>
     <p class="text-muted fs-5 mb-4 mx-auto" style="max-width: 650px; line-height: 1.6;">
-        Immerse yourself in a beautifully crafted reading experience. Discover the latest insights on design, engineering, and startups.
+        Explore the latest government and private job opportunities, instant result updates, admit card notifications, internships, and career alerts — all in one modern platform designed to keep students and job seekers ahead.
     </p>
     
     <div class="glass-panel p-2 mx-auto shadow-sm" style="max-width: 900px; border-radius: 12px; margin-bottom: 30px;">
