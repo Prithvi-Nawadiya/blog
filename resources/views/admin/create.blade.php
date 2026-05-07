@@ -7,11 +7,11 @@
             <div class="d-flex align-items-center">
                 <a href="{{ route('admin.dashboard') }}" class="btn btn-light rounded-circle shadow-sm me-3 text-white d-flex align-items-center justify-content-center" style="width:40px; height:40px; transition: 0.2s;"><i class="fa-solid fa-arrow-left fs-6"></i></a>
                 <div>
-                    <h2 class="fw-bold mb-0 text-white" style="letter-spacing: -0.5px; font-size: 1.8rem;">Craft a Story</h2>
+                    <h2 class="fw-bold mb-0 text-white" style="letter-spacing: -0.5px; font-size: 1.8rem;">Craft an Update</h2>
                     <p class="text-muted mb-0" style="font-size: 0.95rem;">Share your perspective with the world</p>
                 </div>
             </div>
-            <button type="submit" form="createForm" class="btn btn-premium shadow-sm py-2 px-4 fw-medium d-none d-md-block">Publish Story <i class="fa-solid fa-paper-plane ms-2"></i></button>
+            <button type="submit" form="createForm" class="btn btn-premium shadow-sm py-2 px-4 fw-medium d-none d-md-block">Publish Update <i class="fa-solid fa-paper-plane ms-2"></i></button>
         </div>
 
         <div class="glass-panel p-4 p-md-5 border-0 shadow-sm" style="border-radius: 16px;">
@@ -19,7 +19,7 @@
                 @csrf
                 <div class="row g-4 mb-4">
                     <div class="col-md-8">
-                        <label class="form-label fw-bold text-muted ms-1 small text-uppercase tracking-wider" style="font-size: 0.75rem;">Story Title</label>
+                        <label class="form-label fw-bold text-muted ms-1 small text-uppercase tracking-wider" style="font-size: 0.75rem;">Update Title</label>
                         <input type="text" name="title" class="form-control shadow-sm @error('title') is-invalid @enderror" value="{{ old('title') }}" required placeholder="Title">
                         @error('title') <div class="invalid-feedback fw-medium ms-1 mt-1">{{ $message }}</div> @enderror
                     </div>
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end d-md-none mt-4 pt-4 border-top border-dark">
-                    <button type="submit" class="btn btn-premium w-100 py-3 fw-medium">Publish Story <i class="fa-solid fa-paper-plane ms-2"></i></button>
+                    <button type="submit" class="btn btn-premium w-100 py-3 fw-medium">Publish Update <i class="fa-solid fa-paper-plane ms-2"></i></button>
                 </div>
             </form>
         </div>
@@ -114,7 +114,7 @@
                         if (text.length === 0) {
                             // prevent native form submit and show friendly message
                             e.preventDefault();
-                            clientError.textContent = 'Please enter some content for your story.';
+                            clientError.textContent = 'Please enter some content for your update.';
                             clientError.style.display = 'block';
                             textarea.classList.add('is-invalid');
                             // focus the editor so user can start typing

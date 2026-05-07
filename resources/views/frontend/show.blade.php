@@ -37,7 +37,7 @@
                     
                     <div class="d-flex justify-content-between align-items-center rounded-4 p-4" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
                         <div>
-                            <h4 class="fw-bold mb-1 text-white" style="font-size: 1.2rem;">Loved this story?</h4>
+                            <h4 class="fw-bold mb-1 text-white" style="font-size: 1.2rem;">Loved this update?</h4>
                             <p class="text-muted mb-0" style="font-size: 0.9rem;">Share it with your network.</p>
                         </div>
                         <div class="d-flex gap-2">

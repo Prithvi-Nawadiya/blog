@@ -6,10 +6,10 @@
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 pb-3 glass-panel p-4 shadow-sm border-0" style="border-radius: 16px;">
         <div>
             <h2 class="fw-bold mb-1 text-white" style="letter-spacing: -0.5px; font-size: 1.8rem;"><i class="fa-solid fa-shapes me-3" style="color: #a8b2d1;"></i>Creator Studio</h2>
-            <p class="text-muted mb-0" style="font-size: 0.95rem;">Manage and refine your elegant stories</p>
+            <p class="text-muted mb-0" style="font-size: 0.95rem;">Manage and refine your elegant updates</p>
         </div>
         <div class="mt-3 mt-md-0">
-            <a href="{{ route('admin.create') }}" class="btn btn-premium shadow-sm py-2 px-4"><i class="fa-solid fa-pen-nib me-2"></i> Write New Story</a>
+            <a href="{{ route('admin.create') }}" class="btn btn-premium shadow-sm py-2 px-4"><i class="fa-solid fa-pen-nib me-2"></i> Write New Update</a>
         </div>
     </div>
 
@@ -19,7 +19,7 @@
             <table class="table table-borderless table-hover align-middle mb-0 bg-transparent">
                 <thead style="background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05);">
                     <tr>
-                        <th class="py-3 ps-4 text-muted fw-bold text-uppercase tracking-wider" style="font-size: 0.8rem;">Story Details</th>
+                        <th class="py-3 ps-4 text-muted fw-bold text-uppercase tracking-wider" style="font-size: 0.8rem;">Update Details</th>
                         <th class="py-3 text-muted fw-bold text-uppercase tracking-wider" style="font-size: 0.8rem;">Category</th>
                         <th class="py-3 text-muted fw-bold text-uppercase tracking-wider" style="font-size: 0.8rem;">Published Date</th>
                         <th class="py-3 pe-4 text-end text-muted fw-bold text-uppercase tracking-wider" style="font-size: 0.8rem;">Manage</th>
@@ -47,7 +47,7 @@
                             <td class="py-3 text-muted fw-medium" style="font-size: 0.9rem;"><i class="fa-regular fa-calendar-check me-2 opacity-50"></i>{{ $blog->created_at->format('F j, Y') }}</td>
                             <td class="py-3 pe-4 text-end">
                                 <a href="{{ route('admin.edit', $blog->id) }}" class="btn btn-light rounded-circle shadow-sm me-2 text-white" style="width:36px; height:36px; padding: 0; display: inline-flex; align-items: center; justify-content: center; transition: 0.2s;"><i class="fa-solid fa-pen" style="font-size: 0.8rem;"></i></a>
-                                <form action="{{ route('admin.destroy', $blog->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this story forever?');">
+                                <form action="{{ route('admin.destroy', $blog->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this update forever?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-light rounded-circle shadow-sm text-danger" style="width:36px; height:36px; padding: 0; display: inline-flex; align-items: center; justify-content: center; transition: 0.2s;"><i class="fa-solid fa-trash-can" style="font-size: 0.8rem;"></i></button>
@@ -62,7 +62,7 @@
                                         <i class="fa-solid fa-feather fs-2 text-muted"></i>
                                     </div>
                                     <h3 class="fw-bold text-white mb-2" style="font-size: 1.5rem;">Your canvas is blank</h3>
-                                    <p class="text-muted mb-4" style="font-size: 0.95rem;">You haven't published any stories yet.</p>
+                                    <p class="text-muted mb-4" style="font-size: 0.95rem;">You haven't published any updates yet.</p>
                                     <a href="{{ route('admin.create') }}" class="btn btn-premium shadow-sm py-2 px-4">Start Writing</a>
                                 </div>
                             </td>
