@@ -5,11 +5,11 @@
     <!-- Dashboard Header -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 pb-3 glass-panel p-4 shadow-sm border-0" style="border-radius: 16px;">
         <div>
-            <h2 class="fw-bold mb-1 text-white" style="letter-spacing: -0.5px; font-size: 1.8rem;"><i class="fa-solid fa-shapes me-3" style="color: #a8b2d1;"></i>Creator Studio</h2>
-            <p class="text-muted mb-0" style="font-size: 0.95rem;">Manage and refine your elegant updates</p>
+            <h2 class="fw-bold mb-1 text-white" style="letter-spacing: -0.5px; font-size: 1.8rem;"><i class="fa-solid fa-shapes me-3" style="color: #a8b2d1;"></i>Recruitment Admin Panel</h2>
+            <p class="text-muted mb-0" style="font-size: 0.95rem;">Manage and refine your recruitment notifications</p>
         </div>
         <div class="mt-3 mt-md-0">
-            <a href="{{ route('admin.create') }}" class="btn btn-premium shadow-sm py-2 px-4"><i class="fa-solid fa-pen-nib me-2"></i> Write New Update</a>
+            <a href="{{ route('admin.create') }}" class="btn btn-premium shadow-sm py-2 px-4"><i class="fa-solid fa-pen-nib me-2"></i> Post New Update</a>
         </div>
     </div>
 
@@ -61,9 +61,9 @@
                                     <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-4" style="width:80px; height:80px; background: rgba(255,255,255,0.03);">
                                         <i class="fa-solid fa-feather fs-2 text-muted"></i>
                                     </div>
-                                    <h3 class="fw-bold text-white mb-2" style="font-size: 1.5rem;">Your canvas is blank</h3>
-                                    <p class="text-muted mb-4" style="font-size: 0.95rem;">You haven't published any updates yet.</p>
-                                    <a href="{{ route('admin.create') }}" class="btn btn-premium shadow-sm py-2 px-4">Start Writing</a>
+                                    <h3 class="fw-bold text-white mb-2" style="font-size: 1.5rem;">No notifications posted</h3>
+                                    <p class="text-muted mb-4" style="font-size: 0.95rem;">You haven't posted any recruitment updates yet.</p>
+                                    <a href="{{ route('admin.create') }}" class="btn btn-premium shadow-sm py-2 px-4">Post New Update</a>
                                 </div>
                             </td>
                         </tr>

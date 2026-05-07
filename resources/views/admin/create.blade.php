@@ -7,11 +7,11 @@
             <div class="d-flex align-items-center">
                 <a href="{{ route('admin.dashboard') }}" class="btn btn-light rounded-circle shadow-sm me-3 text-white d-flex align-items-center justify-content-center" style="width:40px; height:40px; transition: 0.2s;"><i class="fa-solid fa-arrow-left fs-6"></i></a>
                 <div>
-                    <h2 class="fw-bold mb-0 text-white" style="letter-spacing: -0.5px; font-size: 1.8rem;">Craft an Update</h2>
-                    <p class="text-muted mb-0" style="font-size: 0.95rem;">Share your perspective with the world</p>
+                    <h2 class="fw-bold mb-0 text-white" style="letter-spacing: -0.5px; font-size: 1.8rem;">Post New Update</h2>
+                    <p class="text-muted mb-0" style="font-size: 0.95rem;">Post the latest recruitment, result, or admit card details</p>
                 </div>
             </div>
-            <button type="submit" form="createForm" class="btn btn-premium shadow-sm py-2 px-4 fw-medium d-none d-md-block">Publish Update <i class="fa-solid fa-paper-plane ms-2"></i></button>
+            <button type="submit" form="createForm" class="btn btn-premium shadow-sm py-2 px-4 fw-medium d-none d-md-block">Post Notification <i class="fa-solid fa-paper-plane ms-2"></i></button>
         </div>
 
         <div class="glass-panel p-4 p-md-5 border-0 shadow-sm" style="border-radius: 16px;">
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end d-md-none mt-4 pt-4 border-top border-dark">
-                    <button type="submit" class="btn btn-premium w-100 py-3 fw-medium">Publish Update <i class="fa-solid fa-paper-plane ms-2"></i></button>
+                    <button type="submit" class="btn btn-premium w-100 py-3 fw-medium">Post Notification <i class="fa-solid fa-paper-plane ms-2"></i></button>
                 </div>
             </form>
         </div>

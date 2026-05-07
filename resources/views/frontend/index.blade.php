@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="hero-section fade-in-up pb-5">
-    <h1 class="hero-title text-start mb-2" style="font-size: 3.5rem;">Explore Blogs</h1>
+    <h1 class="hero-title text-start mb-2" style="font-size: 3.5rem;">Latest Exam Updates</h1>
     <p class="text-muted fs-5 mb-0 text-start" style="max-width: 700px; line-height: 1.6;">
         Stay updated with the latest job alerts, results, admit cards, and career opportunities from across the industry.
     </p>
