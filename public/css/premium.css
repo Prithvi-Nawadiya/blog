@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6, .text-white {
 .premium-card .position-relative { flex: 0 0 auto; }
 
 /* Equal height grid cards */
-.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+.card-grid { display: flex; flex-direction: column; gap: 1.25rem; }
 
 /* Search suggestions dropdown */
 .search-suggestions {

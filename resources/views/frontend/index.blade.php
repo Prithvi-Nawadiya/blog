@@ -43,8 +43,8 @@
     </div>
 </div>
 
-<!-- About Section -->
-<section id="about" class="about-section container-fluid px-0 fade-in-up">
+<!-- About Section (moved below blog list) -->
+<section id="about" class="about-section container-fluid px-0 fade-in-up mt-4">
     <div class="mx-auto" style="max-width: 1100px;">
         <div class="text-center mb-4">
             <h2 class="fw-bold text-heading">About Hireon</h2>
@@ -73,44 +73,6 @@
                 <h4>Mobile Friendly</h4>
                 <p>Seamless experience across desktop, tablet, and mobile devices.</p>
             </div>
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                <h4>Smart Search</h4>
-                <p>Quickly search for jobs, results, and updates using responsive AJAX-powered search.</p>
-            </div>
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-filter"></i></div>
-                <h4>Category Filters</h4>
-                <p>Browse updates easily with dedicated categories like Jobs, Results, and Admit Cards.</p>
-            </div>
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-desktop"></i></div>
-                <h4>Responsive UI</h4>
-                <p>Modern dark premium interface optimized for both laptops and smartphones.</p>
-            </div>
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-route"></i></div>
-                <h4>Easy Navigation</h4>
-                <p>Simple and clean layout for smooth browsing experience.</p>
-            </div>
-            <div class="about-card feature-card">
-                <div class="icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-                <h4>Real-Time Access</h4>
-                <p>Stay updated with newly published opportunities and announcements instantly.</p>
-            </div>
-        </div>
-
-        <!-- Why Choose Hireon -->
-        <div class="why-choose mb-4">
-            <h5 class="text-heading fw-bold mb-3">Why Choose Hireon</h5>
-            <ul class="why-list text-muted">
-                <li>Clean and modern interface</li>
-                <li>Faster access to important updates</li>
-                <li>Responsive and user-friendly experience</li>
-                <li>Organized job and result categories</li>
-                <li>Easy filtering and searching system</li>
-                <li>Designed for students and job seekers</li>
-            </ul>
         </div>
 
         <!-- More -->
