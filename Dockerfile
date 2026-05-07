@@ -10,6 +10,9 @@ WORKDIR /app
 
 COPY . .
 
+RUN mkdir -p /app/database
+RUN touch /app/database/database.sqlite
+
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 RUN php artisan config:clear || true
