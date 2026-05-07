@@ -1,13 +1,6 @@
 FROM php:8.2-cli
 
-RUN apt-get update && apt-get install -y 
-git 
-curl 
-unzip 
-zip 
-libzip-dev 
-sqlite3 
-libsqlite3-dev
+RUN apt-get update && apt-get install -y git curl unzip zip libzip-dev sqlite3 libsqlite3-dev
 
 RUN docker-php-ext-install zip pdo pdo_sqlite
 
@@ -20,8 +13,6 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 RUN cp .env.example .env || true
-
-RUN php artisan key:generate || true
 
 RUN php artisan config:clear || true
 
