@@ -26,11 +26,13 @@
                     <li class="nav-item me-3">
                         <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('frontend.index') }}">Explore</a>
                     </li>
+                    @auth
+                        <li class="nav-item me-3"><a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                    @endauth
                     <li class="nav-item me-3">
                         <a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('frontend.index') }}#about" id="navAbout">About</a>
                     </li>
                     @auth
-                        <li class="nav-item me-3"><a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle fw-medium fs-6 d-flex align-items-center text-main" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                 <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=202024&color=e4e4e7&bold=true" class="rounded-circle me-2 border border-secondary border-opacity-25" width="28">
