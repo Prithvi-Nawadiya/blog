@@ -51,7 +51,7 @@
                         </li>
                     @else
                         <li class="nav-item"><a class="nav-link fw-medium fs-6 text-main opacity-75 hover-opacity-100" href="{{ route('login') }}">Sign In</a></li>
-                        <li class="nav-item ms-lg-3"><a class="btn btn-premium shadow-sm py-1 px-3 fs-6" href="{{ route('register') }}">Sign Up</a></li>
+                        <li class="nav-item ms-lg-3"><a class="btn btn-premium shadow-sm py-1 px-3 fs-6" href="#contact">Contact Us</a></li>
                     @endauth
                 </ul>
             </div>
@@ -76,7 +76,7 @@
     </main>
 
     <!-- Contact Section -->
-    <div class="container-fluid px-4 px-lg-5 mt-5 pt-5 pb-2" style="max-width: 1200px;">
+    <div id="contact" class="container-fluid px-4 px-lg-5 mt-5 pt-5 pb-2" style="max-width: 1200px;">
         <div class="glass-panel p-4 p-md-5 border-0 shadow-sm text-center fade-in-up" style="border-radius: 16px; background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-dark) 100%);">
             <h3 class="fw-bold mb-3 text-heading" style="letter-spacing: -0.5px;">Have feedback or ideas?</h3>
             <p class="text-muted mb-4 mx-auto" style="max-width: 500px; font-size: 0.95rem;">Feel free to reach out anytime for collaboration opportunities or support. We'd love to hear from you.</p>
