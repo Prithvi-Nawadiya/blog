@@ -35,9 +35,11 @@
             <button id="clearDateBtn" type="button" class="btn btn-light filter-control border-0 d-flex align-items-center justify-content-center" style="width: 54px; height: 54px;" title="Clear date"><i class="fa-solid fa-xmark text-muted fs-5"></i></button>
         </div>
         
-        <button class="btn btn-premium d-flex align-items-center gap-2" style="height: 54px; padding: 0 30px;">
-            <i class="fa-solid fa-magnifying-glass"></i> Search
-        </button>
+        <div style="flex: 0 0 auto;">
+            <button class="btn btn-premium d-flex align-items-center gap-2" style="height: 54px; padding: 0 30px;">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
+        </div>
     </div>
 </div>
 
@@ -59,12 +61,12 @@
     <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width:60px; height:60px; background: rgba(255,255,255,0.03);">
         <i class="fa-solid fa-layer-group fs-3 text-muted"></i>
     </div>
-    <h3 class="fw-bold mb-2 fs-3 text-heading">No stories found</h3>
+    <h3 class="fw-bold mb-2 fs-3 text-heading">No latest updates found</h3>
     <p class="text-muted mb-0 fs-6" style="max-width: 400px; margin: 0 auto;">Try adjusting your search keywords or browsing a different topic.</p>
 </div>
 
 <div class="text-center mt-4 pt-4 d-none" id="loadMoreContainer">
-    <button id="loadMoreBtn" class="btn btn-light px-4 py-2 fs-6 shadow-sm fw-medium">Load More Stories <i class="fa-solid fa-arrow-down ms-2"></i></button>
+    <button id="loadMoreBtn" class="btn btn-light px-4 py-2 fs-6 shadow-sm fw-medium">Load More Updates <i class="fa-solid fa-arrow-down ms-2"></i></button>
 </div>
 @endsection
 

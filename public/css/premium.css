@@ -223,11 +223,21 @@ h1, h2, h3, h4, h5, h6, .text-white {
 }
 
 /* Filter row alignment improvements */
-.filter-bar { padding: 12px; align-items: center; }
-.filter-bar .position-relative { flex: 1 1 0%; }
-.filter-bar > div { display: flex; align-items: center; }
-.filter-bar input, .filter-bar select, .filter-bar .btn { height: 48px; }
-.filter-bar .btn { min-width: 120px; }
+.filter-bar { 
+    display: flex;
+    gap: 12px; 
+    align-items: center; 
+}
+.filter-bar > div { 
+    display: flex; 
+    align-items: center; 
+}
+.filter-bar input, .filter-bar select, .filter-bar .btn { 
+    height: 54px; 
+}
+.filter-bar .btn-premium { 
+    min-width: 140px; 
+}
 
 /* Hero tweaks for balance */
 .hero-section { padding: 80px 0 60px; }
@@ -250,7 +260,7 @@ h1, h2, h3, h4, h5, h6, .text-white {
 .btn-outline-premium:hover { background: rgba(139,92,246,0.06); color: var(--text-main); border-color: var(--accent-muted); }
 
 .filter-bar .form-control, .filter-bar .form-select { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); }
-.filter-bar { gap: 14px; }
+.filter-bar { gap: 12px; }
 
 /* About card spacing and typography improvements per screenshot */
 .about-card h4 { font-size: 1.05rem; margin-bottom: 6px; }
@@ -309,10 +319,8 @@ h1, h2, h3, h4, h5, h6, .text-white {
 }
 
 /* Filter bar specific */
-.filter-bar { padding: 10px; }
-.filter-bar { padding: 10px; }
-.filter-bar > div { display: flex; align-items: center; }
-.filter-control { height: 44px; padding: 10px 14px; border-radius: 8px; }
+.filter-bar { padding: 5px; }
+.filter-control { height: 54px; padding: 10px 14px; border-radius: 8px; }
 .filter-control:focus { box-shadow: 0 0 0 3px rgba(139,92,246,0.08); border-color: var(--accent-color); }
 .filter-bar .fa-magnifying-glass { color: var(--text-muted); }
 
@@ -323,10 +331,11 @@ h1, h2, h3, h4, h5, h6, .text-white {
 }
 
 /* Desktop sizing for balanced widths */
-.filter-bar > .position-relative { flex: 1 1 0%; min-width: 0; }
-.filter-bar > div:nth-of-type(2) { flex: 0 0 260px; }
-.filter-bar > div:nth-of-type(3) { flex: 0 0 170px; }
-.filter-bar > div:nth-of-type(4) { flex: 0 0 44px; }
+.filter-bar > div:nth-of-type(1) { flex: 1 1 0%; min-width: 0; }
+.filter-bar > div:nth-of-type(2) { flex: 0 0 240px; }
+.filter-bar > div:nth-of-type(3) { flex: 0 0 180px; }
+.filter-bar > div:nth-of-type(4) { flex: 0 0 54px; }
+.filter-bar > div:nth-of-type(5) { flex: 0 0 auto; }
 
 /* Ensure select text isn't truncated early */
 .filter-bar select.form-select { white-space: nowrap; }
